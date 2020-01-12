@@ -1,0 +1,36 @@
+version: "2.2"
+
+services:
+    bigchaindb:
+        image: crowjdh/bigchaindb:latest
+        tty: true
+        environment:
+            BIGCHAIN_HOST: 0.0.0.0
+            BIGCHAIN_PORT: 9984
+            TENDERMINT_HOST: tendermint
+            TENDERMINT_PORT: 26657
+            MONGODB_HOST: mongodb
+            MONGODB_PORT: 27017
+            MONGODB_DATABASE_NAME: bigchaindb-backend
+        volumes:
+          - ./wait-for-it.sh:/wait-for-it.sh
+        command: >
+            bash -c "envsubst < /root/.bigchaindb-template > /root/.bigchaindb
+            && /wait-for-it.sh -t 0 -s $$MONGODB_HOST:$$MONGODB_PORT
+            && tail -f /dev/null"
+
+    mongodb:
+        image: mongo:3.6
+        command: mongod
+
+    tendermint:
+        image: tendermint/tendermint:v0.31.5
+        entrypoint: ""
+        command: sh -c "tail -f /dev/null"
+
+    app:
+        image: node:11.14.0
+        working_dir: "/usr/src/app"
+        volumes:
+            - ./bigchaindb-app:/usr/src/app
+        command: sh -c "tail -f /dev/null"

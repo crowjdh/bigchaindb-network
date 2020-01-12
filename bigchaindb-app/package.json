@@ -1,0 +1,17 @@
+{
+  "name": "bigchaindb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "base-x": "3.0.4",
+    "bigchaindb-driver": "4.1.0",
+    "bip39": "^2.5.0",
+    "node-gyp": "^5.0.7"
+  }
+}

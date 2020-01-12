@@ -1,0 +1,5 @@
+docker exec -ti bigchaindb-network_bigchaindb_1 tail -f bigchaindb.log
+docker exec -ti bigchaindb-network_bigchaindb_2 tail -f bigchaindb.log
+
+docker exec -ti bigchaindb-network_tendermint_1 tail -f tendermint.log
+docker exec -ti bigchaindb-network_tendermint_2 tail -f tendermint.log
