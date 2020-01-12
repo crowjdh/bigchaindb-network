@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Run services
-docker-compose up -d --scale bigchaindb=2 --scale mongodb=2 --scale tendermint=2
+docker-compose up -d --scale mongodb=2 --scale tendermint=2 mongodb tendermint app
+
+docker-compose run -d --rm --name bigchaindb-network_bigchaindb_1 -e MONGODB_HOST=bigchaindb-network_mongodb_1 bigchaindb
+docker-compose run -d --rm --name bigchaindb-network_bigchaindb_2 -e MONGODB_HOST=bigchaindb-network_mongodb_2 bigchaindb
 
 # Init tendermint
 docker exec bigchaindb-network_tendermint_1 tendermint init

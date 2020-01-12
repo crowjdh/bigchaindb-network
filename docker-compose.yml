@@ -9,7 +9,7 @@ services:
             BIGCHAIN_PORT: 9984
             TENDERMINT_HOST: tendermint
             TENDERMINT_PORT: 26657
-            MONGODB_HOST: mongodb
+            # MONGODB_HOST: mongodb
             MONGODB_PORT: 27017
             MONGODB_DATABASE_NAME: bigchaindb-backend
         volumes:

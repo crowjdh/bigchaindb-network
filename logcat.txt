@@ -3,3 +3,9 @@ docker exec -ti bigchaindb-network_bigchaindb_2 tail -f bigchaindb.log
 
 docker exec -ti bigchaindb-network_tendermint_1 tail -f tendermint.log
 docker exec -ti bigchaindb-network_tendermint_2 tail -f tendermint.log
+
+docker exec -ti bigchaindb-network_mongodb_1 mongo --eval "db.currentOp(true)" | pbcopy
+docker exec -ti bigchaindb-network_mongodb_2 mongo --eval "db.currentOp(true)" | pbcopy
+
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bigchaindb-network_bigchaindb_1
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' bigchaindb-network_bigchaindb_2
