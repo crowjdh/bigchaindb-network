@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "base-x": "3.0.4",
-    "bigchaindb-driver": "4.1.0",
+    "bigchaindb-driver": "4.3.0",
     "bip39": "^2.5.0",
     "node-gyp": "^5.0.7"
   }
