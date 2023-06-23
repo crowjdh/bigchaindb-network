@@ -12,6 +12,6 @@
     "base-x": "3.0.4",
     "bigchaindb-driver": "4.3.0",
     "bip39": "^2.5.0",
-    "node-gyp": "^5.0.7"
+    "node-gyp": "^9.4.0"
   }
 }
